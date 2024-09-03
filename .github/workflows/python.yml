@@ -27,7 +27,7 @@ jobs:
       - name: Clone armips
         uses: actions/checkout@v4
         with:
-          name: Kingcom/armips
+          repository: Kingcom/armips
           submodules: 'recursive'
 
       - name: Build armips
