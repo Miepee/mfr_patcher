@@ -23,6 +23,25 @@ jobs:
           fetch-depth: 0
           submodules: 'recursive'
 
+
+      - name: Clone armips
+        uses: actions/checkout@v4
+        with:
+          name: Kingcom/armips
+          submodules: 'recursive'
+
+      - name: Build armips
+        run: |
+          cd armips
+          mkdir build && cd build
+          cmake -DCMAKE_BUILD_TYPE=Release ..
+          cmake --build .
+          cp ./armips ../../armips
+
+      - name: Build ASM
+        run: |
+          make AS=./armips
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
