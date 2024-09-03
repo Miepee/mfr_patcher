@@ -32,6 +32,7 @@ jobs:
 
       - name: Build armips
         run: |
+          ls -l
           cd armips
           mkdir build && cd build
           cmake -DCMAKE_BUILD_TYPE=Release ..
